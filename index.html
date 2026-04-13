@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zauq - Luxury E-Store</title>
+    <!-- Fonts & Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ....................header -->
+    <header class="zauq-header sticky-top">
+      <nav class="navbar p-0">
+        <div
+          class="container-fluid px-lg-5 d-flex justify-content-between align-items-center"
+        >
+          <div class="d-flex align-items-center">
+            <img
+              src="assets/menu (1).png"
+              alt="Menu"
+              class="me-3 cursor-pointer menu-icon iconM"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#zauqSidebar"
+              aria-controls="zauqSidebar"
+            />
+            <a
+              class="navbar-brand m-0"
+              href="javascript:void(0)"
+              onclick="home()"
+            >
+              <img src="assets/logoo.png" alt="Zauq Logo" class="header-logo" />
+            </a>
+          </div>
+          <div class="d-flex align-items-center gap-4">
+            <a
+              href="javascript:void(0)"
+              class="text-decoration-none"
+              onclick="searchdisplay()"
+              ><div
+                class="header-action-item d-none d-md-flex align-items-center"
+              >
+                <i class="fa-solid fa-magnifying-glass me-2"></i>
+                <span class="action-text">SEARCH</span>
+              </div></a
+            >
+            <div class="header-action-item d-flex align-items-center">
+              <i class="fa-regular fa-heart me-2"></i>
+              <span class="action-text d-none d-md-inline">WISHLIST</span>
+            </div>
+            <div class="header-action-item">
+              <i class="fa-solid fa-bag-shopping"></i>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!-- .................... offcanvas -->
+    
+    <div
+      class="offcanvas offcanvas-start border-0"
+      tabindex="-1"
+      id="zauqSidebar"
+      aria-labelledby="zauqSidebarLabel"
+      style="width: 320px"
+    >
+      <div class="offcanvas-header border-bottom p-4">
+        <h5
+          class="offcanvas-title fw-bold text-uppercase tracking-widest"
+          id="zauqSidebarLabel"
+          style="letter-spacing: 2px"
+        >
+          ZAUQ
+        </h5>
+        <button
+          type="button"
+          class="btn-close text-reset shadow-none"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body p-0">
+        <ul class="list-unstyled mb-0">
+          <li class="border-bottom">
+            <a
+              href="javascript:void(0)"
+              onclick="renderCatagory('chikankari')"
+              class="nav-link-item"
+              >CHIKANKARI</a
+            >
+          </li>
+          <li class="border-bottom">
+            <a
+              href="javascript:void(0)"
+              onclick="renderCatagory('signature')"
+              class="nav-link-item"
+              >SIGNATURE PRET</a
+            >
+          </li>
+          <li class="border-bottom">
+            <a
+              href="javascript:void(0)"
+              onclick="renderCatagory('designer')"
+              class="nav-link-item"
+              >DESIGNER</a
+            >
+          </li>
+          <li class="border-bottom">
+            <a
+              href="javascript:void(0)"
+              onclick="renderCatagory('tankTop')"
+              class="nav-link-item"
+              >TANK TOPS</a
+            >
+          </li>
+          <li class="border-bottom">
+            <a
+              href="javascript:void(0)"
+              onclick="renderCatagory('western')"
+              class="nav-link-item"
+              >WESTERN</a
+            >
+          </li>
+          <li class="border-bottom">
+            <a
+              href="javascript:void(0)"
+              onclick="renderCatagory('bags')"
+              class="nav-link-item"
+              >BAGS</a
+            >
+          </li>
+          <li class="border-bottom">
+            <a
+              href="javascript:void(0)"
+              onclick="renderCatagory('fragrance')"
+              class="nav-link-item"
+              >FRAGRANCE</a
+            >
+          </li>
+        </ul>
+
+        <div class="p-4 mt-4 bg-light">
+          <p class="small text-muted mb-3 fw-bold">HELP & INFORMATION</p>
+          <ul class="list-unstyled small">
+            <li class="mb-2">
+              <a href="dilivery.html" class="text-decoration-none text-dark"
+                >Shipping Policy</a
+              >
+            </li>
+            <li class="mb-2">
+              <a href="exchange.html" class="text-decoration-none text-dark"
+                >Returns & Exchange</a
+              >
+            </li>
+            <li>
+              <a href="contact.html" class="text-decoration-none text-dark"
+                >Contact Us</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- ........................home -->
+
+    <main id="zauq-main">
+      <section class="hero-container" id="displayHero">
+        <div class="side-bullets">
+          <button class="bullet active" index="0"></button>
+          <button class="bullet" index="1"></button>
+          <button class="bullet" index="2"></button>
+          <button class="bullet" index="3"></button>
+          <button class="bullet" index="4"></button>
+          <button class="bullet" index="5"></button>
+          <button class="bullet" index="6"></button>
+          <button class="bullet" index="7"></button>
+          <button class="bullet" index="8"></button>
+        </div>
+
+        <img
+          src="assets/11.png"
+          id="mainHeroImg"
+          class="hero-display-img"
+          alt="Main Display"
+        />
+
+        <nav class="hero-bottom-nav">
+          <div class="container-fluid">
+            <ul class="nav-links">
+              <li>
+                <a
+                  href="javascript:void(0)"
+                  onclick="renderCatagory('chikankari')"
+                  >CHIKANKARI</a
+                >
+              </li>
+              <li>
+                <a
+                  href="javascript:void(0)"
+                  onclick="renderCatagory('signature')"
+                  >SIGNATURE PRET</a
+                >
+              </li>
+              <li>
+                <a
+                  href="javascript:void(0)"
+                  onclick="renderCatagory('designer')"
+                  >DESIGNER</a
+                >
+              </li>
+              <li>
+                <a href="javascript:void(0)" onclick="renderCatagory('tankTop')"
+                  >TANK TOPS</a
+                >
+              </li>
+              <li>
+                <a href="javascript:void(0)" onclick="renderCatagory('western')"
+                  >WESTERN</a
+                >
+              </li>
+              <li>
+                <a href="javascript:void(0)" onclick="renderCatagory('bags')"
+                  >BAGS</a
+                >
+              </li>
+              <li>
+                <a
+                  href="javascript:void(0)"
+                  onclick="renderCatagory('fragrance')"
+                  >FRAGRANCE</a
+                >
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </section>
+
+      <footer class="bg-white border-top" id="footer">
+        <div class="subscribe-section py-4 border-bottom">
+          <div class="container text-center">
+            <h3 class="fw-bold mb-2 ls-2">GET THE LATEST DESIGNS FIRST</h3>
+            <p class="text-muted small mb-4">
+              Subscribe to our newsletter for exclusive updates.
+            </p>
+            <div
+              class="subscribe-form mx-auto d-flex"
+              style="max-width: 450px; border-bottom: 2px solid #000"
+            >
+              <input
+                type="email"
+                name="email"
+                id="email"
+                class="form-control border-0 bg-transparent rounded-0"
+                placeholder="Enter email address"
+              />
+              <button class="btn btn-dark rounded-0 px-4 fw-bold">
+                SUBSCRIBE
+              </button>
+            </div>
+            <div
+              class="social-icons d-flex justify-content-center gap-4 mt-4 text-dark"
+            >
+              <a href="#" class="text-dark"
+                ><i class="fa-brands fa-facebook-f"></i
+              ></a>
+              <a href="#" class="text-dark"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
+              <a href="#" class="text-dark"
+                ><i class="fa-brands fa-tiktok"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-links py-5">
+          <div class="container">
+            <div class="row g-4">
+              <div class="col-md-3">
+                <h6 class="fw-bold small mb-4">HOW WE CAN HELP?</h6>
+                <p class="small text-muted mb-2">+92 21 111 111 111</p>
+                <p class="small text-muted">support@zauq.com</p>
+              </div>
+              <div class="col-md-3">
+                <h6 class="fw-bold small mb-4">INFORMATION</h6>
+                <ul class="list-unstyled small text-muted lh-lg">
+                  <a href="faqs.html" class="text-decoration-none text-muted"
+                    ><li>FAQs</li></a
+                  >
+                  <a
+                    href="exchange.html"
+                    class="text-decoration-none text-muted"
+                    ><li>Exchange & Return</li></a
+                  >
+                  <a
+                    href="dilivery.html"
+                    class="text-decoration-none text-muted"
+                    ><li>Delivery & Shipping</li></a
+                  >
+                </ul>
+              </div>
+              <div class="col-md-3">
+                <h6 class="fw-bold small mb-4">ABOUT US</h6>
+                <ul class="list-unstyled small text-muted lh-lg">
+                  <a href="about.html" class="text-decoration-none text-muted"
+                    ><li>About Zauq</li></a
+                  >
+                  <a href="contact.html" class="text-decoration-none text-muted"
+                    ><li>Contact Us</li></a
+                  >
+                  <a
+                    href="retailstore.html"
+                    class="text-decoration-none text-muted"
+                    ><li>Retail Stores</li></a
+                  >
+                </ul>
+              </div>
+              <div class="col-md-3 text-md-end">
+                <h6 class="fw-bold small mb-4">PAYMENT METHODS</h6>
+                <div
+                  class="payment-methods d-flex justify-content-md-end gap-3 grayscale opacity-50"
+                >
+                  <i class="fa-brands fa-cc-visa fs-2"></i>
+                  <i class="fa-brands fa-cc-mastercard fs-2"></i>
+                  <span class="border px-2 py-1 fw-bold" style="font-size: 10px"
+                    >PAYFAST</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom py-2 border-top">
+          <div
+            class="container d-flex justify-content-between align-items-center"
+          >
+            <p class="small mb-0 opacity-50">
+              © 2026 ZAUQ. ALL RIGHTS RESERVED.
+            </p>
+            <span class="zauq-logo-footer">ZAUQ</span>
+          </div>
+        </div>
+      </footer>
+    </main>
+    <!-- .................... search -->
+    <div class="container mt-5" id="searchContainer">
+      <div class="row g-3 mt-4 justify-content-center">
+        <div class="col-md-3">
+          <span class="filter-label">CATEGORY</span>
+          <select
+            class="form-select filter-select"
+            id="categoryFilter"
+          ></select>
+        </div>
+        <div class="col-md-3">
+          <span class="filter-label">COLLECTION</span>
+          <select
+            class="form-select filter-select"
+            id="collectionFilter"
+          >
+        <option value="all">All COLLECTIONS</option>
+        </select>
+        </div>
+
+        <div class="col-md-3">
+          <button
+            class="abbtn"
+            onclick="startSearch()"
+            style="margin-top: 27px"
+          >
+            SEARCH NOW
+          </button>
+        </div>
+      </div>
+
+      <div class="row g-4 mt-2 px-lg-5 " id="zauqText">
+        <div class="col-12 text-center py-0">
+          <p class="text-muted italic opacity-50">
+            Select a category or collection to discover Zauq.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- ...........................product section...................... -->
+    <section id="productDisplay">
+      <section class="category-nav-section py-5 bg-white" id="circleNAve">
+        <div class="container-fluid px-lg-5">
+          <h4 class="section-heading mb-4 text-center" id="catHeading"></h4>
+          <div
+            class="category-scroll-wrapper d-flex justify-content-start justify-content-md-center gap-4 pb-3 pt-2"
+            id="catNavSec"
+          ></div>
+        </div>
+      </section>
+      <section class="product-grid py-5">
+        <div class="container-fluid px-lg-5">
+          <div class="row g-4" id="productContainer"></div>
+        </div>
+      </section>
+    </section>
+<!-- .................produtc card details -->
+            <div class="container" id="productCardDetails">
+    
+</div>
+<!-- ....................buy it now now -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="checkoutSidebar" aria-labelledby="checkoutLabel" style="width: 400px;">
+  <div class="offcanvas-header border-bottom p-4">
+    <h5 class="offcanvas-title fw-bold tracking-widest" id="checkoutLabel">ORDER SUMMARY</h5>
+    <button type="button" class="btn-close text-reset shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  
+  <div class="offcanvas-body p-4">
+    <div id="checkoutItemDetails" class="mb-4">
+        <div class="d-flex gap-3 bg-light p-3 border">
+            <img src="" id="checkoutItemImg" style="width: 80px; height: 100px; object-fit: cover;">
+            <div>
+                <h6 id="checkoutItemName" class="fw-bold mb-1 small"></h6>
+                <p class="small text-muted mb-1"><span id="checkoutItemSize"></span></p>
+                <p class="fw-bold mb-0" id="checkoutItemPrice"></p>
+            </div>
+        </div>
+    </div>
+
+    <form id="quickCheckoutForm">
+        <label class="fw-bold small mb-2">SHIPPING DETAILS</label>
+        <input type="text" class="form-control rounded-0 mb-3" placeholder="Full Name" required>
+        <input type="tel" class="form-control rounded-0 mb-3" placeholder="Phone Number" required>
+        <textarea class="form-control rounded-0 mb-3" rows="3" placeholder="Complete Address" required></textarea>
+        
+        <select class="form-select rounded-0 mb-4">
+            <option selected>Karachi</option>
+            <option>Lahore</option>
+            <option>Islamabad</option>
+        </select>
+
+        <div class="d-flex justify-content-between mb-2">
+            <span class="text-muted small"></span>
+            <span id="subtotal" class="fw-bold"></span>
+        </div>
+
+        <button type="button" onclick="confirmOreder()" class="btn btn-dark w-100 rounded-0 py-3 mt-3 fw-bold tracking-widest zauq-btn">
+            CONFIRM ORDER
+        </button>
+    </form>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="app.js"></script>
+  </body>
+</html>

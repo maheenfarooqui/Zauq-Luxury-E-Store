@@ -1,0 +1,772 @@
+:root {
+  --emerald-green: #004731;
+  --gold-accent: #d4af37;
+  --text-white: #ffffff;
+}
+body{
+    overflow-x: hidden;
+    width: 100%;
+}
+body { font-family: 'Inter', sans-serif; color: #111; }
+        .product-img { width: 100%; height: auto; object-fit: cover; }
+        .product-title { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 10px; }
+        .price { font-size: 1.5rem; color: #bc9c6a; font-weight: 600; margin-bottom: 20px; }
+        .btn-add-bag { background: #111; color: #fff; border-radius: 0; padding: 15px 30px; letter-spacing: 2px; width: 100%; }
+        .btn-add-bag:hover { background: #333; color: white; }
+        .breadcrumb { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+.form-select:focus{
+    box-shadow: none;
+    border-color: #004731;
+
+}
+/* Product Detail Specific Styles */
+.breadcrumb-item + .breadcrumb-item::before {
+    content: "|";
+}
+/* SweetAlert Custom Classes */
+.swal-zauq-popup {
+    border: 2px solid #004731 !important;
+    border-radius: 0 !important; /* Sharp corners for luxury feel */
+    padding: 2rem !important;
+}
+
+.swal-zauq-title {
+    font-family: 'Montserrat', sans-serif !important;
+    letter-spacing: 4px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase;
+}
+
+.swal-zauq-btn {
+    background-color:#004731 !important;
+    color: #fff !important;
+    border: none !important;
+    padding: 12px 30px !important;
+    font-size: 14px !important;
+    letter-spacing: 2px !important;
+    font-weight: bold !important;
+    cursor: pointer !important;
+    transition: 0.3s !important;
+    border-radius: 0 !important; /* Match your theme */
+}
+
+.swal-zauq-btn:hover {
+    background-color: transparent !important; /* Your Gold Color */
+    color:#004731 !important;
+    border: 1px solid #004731 !important;
+}
+#mainImg {
+    transition: transform 0.5s ease;
+    cursor: zoom-in;
+}
+.product-main-img-container {
+    height: 80vh; /* Screen ka 80% hissa cover karegi */
+    overflow: hidden;
+    margin-top: 50px;
+    background-color: transparent; /* Background taake khali jagah buri na lage */
+}#checkoutSidebar {
+    border-left: 1px solid #004731;
+}
+
+.tracking-widest {
+    letter-spacing: 2px;
+}
+
+.zauq-btn {
+    transition: 0.3s;
+    border: 1px solid #004731 !important;
+    background-color: #004731 !important;
+}
+
+.zauq-btn:hover {
+    background-color:transparent !important; /* Gold hover */
+    border-color:#004731 !important;
+    color: #004731 !important;
+}
+
+/* Form focus color change */
+.form-control:focus, .form-select:focus {
+    border-color: #004731;
+    box-shadow: none;
+}
+
+.imgCard {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain; /* Agar poori image dikhani hai baghair katay */
+    /* Ya phir 'cover' use karein agar aapko poora box bharna hai */
+    object-position: top center;
+}
+
+.size-btn {
+    border: 1px solid #ddd;
+    background: white;
+    padding: 8px 18px;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.size-btn:hover, .size-btn.active {
+    border-color: #000;
+    background: #000;
+    color: #fff;
+}
+
+.quantity-wrapper {
+    border: 1px solid #004731;
+    height: 50px;
+}
+
+.qty-control {
+    background: none;
+    border: none;
+    padding: 0 15px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#qtyInput {
+    width: 40px;
+    border: none;
+    text-align: center;
+    font-weight: bold;
+}
+
+.btn-add-to-cart {
+    background: transparent;
+    border: 1px solid #004731;
+    color: #004731;
+    font-weight: bold;
+    letter-spacing: 2px;
+    transition: 0.3s;
+    height: 50px;
+}
+
+.btn-add-to-cart:hover {
+    background:#004731;
+    color: #fff;
+}
+
+.btn-buy-now {
+    background: #004731; /* Gold touch for Luxury */
+    color: white;
+    border: none;
+    padding: 15px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+.btn-buy-now:hover {
+    background:transparent;
+    border: 1px solid #004731;
+    color: #004731;
+}
+
+.product-info-sticky {
+    position: sticky;
+    top: 100px;
+}
+
+/* Chrome, Safari, Edge, Opera - Remove arrows from number input */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#productDisplay , #searchContainer{
+    display: none;
+}
+.abbtn:hover{
+    border: 1px solid #004731 !important;
+    color: #004731 !important;
+    background-color: transparent !important;
+    outline: #004731;
+}
+body { font-family: 'Inter', sans-serif; background-color: #fff; }
+        .search-header { padding: 60px 0; border-bottom: 1px solid #eee; }
+        .search-input-lg{
+            border: none;
+            border-bottom: 2px solid #004731;
+            font-size: 2.5rem;
+            font-weight: 300;
+            border-radius: 0;
+            padding: 10px 0;
+            font-family: 'Playfair Display', serif;
+        }
+        .search-input-lg:focus{ box-shadow: none; border-bottom: 2px solid #bc9c6a !important; }
+        .filter-select {
+            border-radius: 0;
+            border: 1px solid #ddd;
+            padding: 12px;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .filter-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 2px; color: #999; margin-bottom: 8px; display: block; }
+        #searchResultCount { font-size: 0.9rem; color: #666; margin-top: 20px; }
+.zauq-header {
+    z-index: 1020 !important; /* Bootstrap standard sticky-top z-index */
+}
+.offcanvas {
+    z-index: 1060 !important;
+}
+
+.offcanvas-backdrop {
+    z-index: 1050 !important;
+}
+/* Sidebar Link Styling */
+.nav-link-item {
+    display: block;
+    padding: 18px 25px;
+    color: #111;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+.iconM{
+  cursor: pointer !important;
+}
+
+.nav-link-item:hover {
+    background-color: #f8f9fa;
+    color: #bc9c6a; /* Aapka accent color */
+    padding-left: 35px; /* Slide effect on hover */
+}
+
+/* Offcanvas Body Animation */
+.offcanvas.show {
+    box-shadow: 0 0 50px rgba(0,0,0,0.1);
+}
+
+.tracking-widest {
+    letter-spacing: 3px;
+}
+
+/* Custom Close Button for Premium Look */
+.btn-close:focus {
+    box-shadow: none;
+}
+/* Header Styling */
+.zauq-header {
+  background-color: var(--emerald-green);
+  height: 60px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  z-index: 1050;
+}
+
+.header-logo { width: 100px; height: auto; }
+
+.header-action-item {
+  color: var(--text-white);
+  cursor: pointer;
+  font-size: 16px;
+  letter-spacing: 1px;
+  transition: 0.3s;
+}
+
+.header-action-item:hover { color: var(--gold-accent); }
+
+/* Hero Container */
+.hero-container {
+  height: calc(100vh - 60px);
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.hero-display-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); 
+  /* transition:  1.2s ease-in-out; */
+}
+.slide-in-top {
+    animation: slideIn 0.8s forwards;
+}
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px); 
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);    
+    }
+}
+/* Bullets Styling */
+.side-bullets {
+  position: absolute;
+  right: 25px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 20;
+}
+
+.bullet {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid var(--gold-accent);
+  background: transparent;
+  padding: 0;
+  transition: 0.3s;
+}
+
+.bullet.active {
+  background: var(--gold-accent);
+  transform: scale(1.2);
+}
+
+/* Bottom Nav with Background Overlay */
+.hero-bottom-nav {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 71, 49, 0.8); /* Semi-transparent Emerald */
+  backdrop-filter: blur(5px);
+  padding: 15px 0;
+  z-index: 10;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 25px;
+}
+
+.nav-links li a {
+  color: var(--text-white);
+  text-decoration: none;
+  font-size: 15px;
+ letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+
+.nav-links li a:hover {
+  color: var(--gold-accent);
+}
+.subscribe-form input:focus{
+    border: transparent !important;
+}
+/* --- PREMIUM FOOTER STYLING --- */
+footer {
+    background-color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    color: #222;
+    height: calc(100vh - 60px);
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* Subscribe Section */
+.subscribe-section {
+    padding: 80px 0;
+    background-color: #fcfcfc; /* Bohat halka sa contrast */
+}
+
+.ls-2 {
+    letter-spacing: 3px;
+    font-size: 1.4rem;
+    color: #1a1a1a;
+}
+
+/* Input Box - No Blue Glow */
+.subscribe-form {
+    transition: all 0.4s ease;
+}
+
+.subscribe-form input {
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    padding: 12px 0;
+}
+
+/* Focus hone pe blue outline khatam */
+.subscribe-form input:focus {
+    box-shadow: none !important;
+    outline: none !important;
+    background-color: transparent;
+}
+
+.subscribe-form:focus-within {
+    border-bottom: 2px solid var(--emerald-green) !important;
+    transform: translateY(-2px);
+}
+
+.subscribe-form .btn-dark {
+    background-color: #000;
+    border: none;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+}
+
+.subscribe-form .btn-dark:hover {
+    background-color: var(--emerald-green);
+    letter-spacing: 3px;
+}
+
+/* Social Icons */
+.social-icons a {
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.social-icons a:hover {
+    color: var(--emerald-green) !important;
+    transform: translateY(-5px);
+}
+
+/* Footer Links */
+footer{
+     height: calc(100vh - 60px);
+     overflow-x: hidden;
+}
+.footer-heading {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+    color: #000;
+    text-transform: uppercase;
+}
+
+.footer-links ul li {
+    font-size: 0.8rem;
+    margin-bottom: 12px;
+    transition: all 0.3s ease;
+    position: relative;
+    width: fit-content;
+}
+
+/* Link Hover Effect - Emerald Underline */
+.footer-links ul li:hover {
+    color: var(--emerald-green);
+    transform: translateX(8px); /* Halki si movement */
+    cursor: pointer;
+}
+
+/* Payment Icons */
+.payment-methods i {
+    transition: all 0.3s ease;
+}
+
+.payment-methods i:hover {
+    filter: grayscale(0);
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Bottom Bar */
+.footer-bottom {
+    background-color: #fff;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+}
+
+.zauq-logo-footer {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #000;
+}
+/* Section Heading */
+.section-heading {
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--emerald-green);
+    text-transform: uppercase;
+}
+
+/* Scroll Wrapper for Mobile */
+.category-scroll-wrapper {
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Hide Scrollbar but keep functionality */
+.category-scroll-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+.cat-item {
+    min-width: 100px; /* Width for each item */
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.cat-item:hover {
+    transform: translateY(-5px);
+}
+
+/* Small Circle Styling */
+.cat-circle {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 12px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.cat-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Hover Effect on Circle */
+.cat-item:hover .cat-circle {
+    border-color: var(--gold-accent);
+}
+
+/* Label Styling */
+.cat-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #333;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.cat-item:hover .cat-label {
+    color: var(--emerald-green);
+}
+/* Product Card Container */
+.product-card {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Image Wrapper & Overlay Logic */
+.product-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    background-color: #f9f9f9;
+}
+
+.product-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: opacity 0.6s ease, transform 0.8s ease;
+}
+
+/* Hover Pe Dusri Image Show Karne Ke Liye */
+.product-img.secondary {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.product-card:hover .product-img.primary {
+    opacity: 0;
+}
+
+.product-card:hover .product-img.secondary {
+    opacity: 1;
+    transform: scale(1.05); /* Halka sa zoom effect */
+}
+
+/* Badge Styling */
+.badge-new {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: var(--emerald-green);
+    color: #fff;
+    font-size: 10px;
+    padding: 4px 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* Quick Add Button (Bottom Se Slide Hoga) */
+.btn-quick-add {
+    position: absolute;
+    bottom: -50px; /* Initially hidden */
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 71, 49, 0.9); /* Emerald with transparency */
+    color: #fff;
+    border: none;
+    padding: 12px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    transition: all 0.4s ease;
+}
+
+.product-card:hover .btn-quick-add {
+    bottom: 0; /* Hover pe slide up */
+}
+
+/* Details Section */
+.product-name {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    color: #1a1a1a;
+}
+
+.product-category {
+    font-size: 10px;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.current-price {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--emerald-green);
+}
+
+.old-price {
+    font-size: 12px;
+}
+#returns-zauq {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .policy-content p {
+    max-width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .border-bottom {
+    border-bottom: 2px solid #f1f1f1 !important;
+    transition: border-color 0.3s ease;
+  }
+
+  .border-bottom:hover {
+    border-color: var(--emerald-green) !important;
+  }
+
+
+.zauq-about-section {
+    background-color: #ffffff;
+    color: #1a1a1a;
+  }
+  #shipping-zauq {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .x-small {
+    font-size: 0.75rem;
+  }
+
+  .shipping-content {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  /* Adding a subtle hover to the stat boxes */
+  .border.shadow-sm {
+    transition: transform 0.3s ease, border-color 0.3s ease;
+  }
+
+  .border.shadow-sm:hover {
+    transform: translateY(-5px);
+    border-color: #004731 !important;
+  }
+  
+  .zauq-content p {
+    line-height: 1.8;
+  }
+  .abbtn{
+    background-color: rgba(0, 71, 49, 0.9); /* Emerald with transparency */
+    color: #fff;
+    border: none;
+    padding: 12px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    transition: all 0.4s ease;
+  }
+  .form-control:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border-color: #004731; /* apna color */
+}
+
+  
+  .shadow-sm-hover {
+    transition: box-shadow 0.3s;
+  }
+  .shadow-sm-hover:hover {
+    box-shadow:0 4px 10px rgba(0,0,0,0.05) !important;
+  }
+.accordion-item {
+    background-color: transparent;
+    border: none;
+  }
+  
+  .accordion-button {
+    background-color: #fff !important;
+    color: #111 !important;
+    box-shadow: none !important;
+  }
+
+  .accordion-button:not(.collapsed) {
+    color: #bc9c6a !important; /* Accent color when open */
+  }
+
+  .accordion-button::after {
+    filter: grayscale(1); /* Keeps icons minimal */
+  }
+
+  .accordion-body {
+    background-color: #fff;
+    padding-top: 0;
+    padding-bottom: 30px;
+  }
+
+  #faqs-zauq {
+    font-family: 'Inter', sans-serif;
+  }
+  /* Responsive adjustment for the border-ends on mobile */
+  @media (max-width: 768px) {
+    .border-end {
+      border: none !important;
+      border-bottom: 1px solid #dee2e6 !important;
+      padding-bottom: 10px;
+    }
+  }
+
+/* Mobile Tweaks */
+@media (max-width: 576px) {
+    .product-name { font-size: 11px; }
+    .current-price { font-size: 12px; }
+    .btn-quick-add { padding: 8px; font-size: 10px; }
+}
+/* Tablet/Mobile Adjustments */
+@media (max-width: 768px) {
+    .cat-circle {
+        width: 75px;
+        height: 75px;
+    }
+}

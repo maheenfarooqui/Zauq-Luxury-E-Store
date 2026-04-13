@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zauq - Luxury E-Store</title>
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header class="zauq-header sticky-top">
+    <nav class="navbar p-0">
+        <div class="container-fluid px-lg-5 d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+                <img src="assets/menu (1).png" alt="Menu" class="iconM me-3 cursor-pointer menu-icon" data-bs-toggle="offcanvas"
+              data-bs-target="#zauqSidebar"
+              aria-controls="zauqSidebar">
+                <a class="navbar-brand m-0" href="index.html">
+                    <img src="assets/logoo.png" alt="Zauq Logo" class="header-logo">
+                </a>
+            </div>
+            <div class="d-flex align-items-center gap-4">
+                <div class="header-action-item d-none d-md-flex align-items-center">
+                    <i class="fa-solid fa-magnifying-glass me-2"></i> <span class="action-text">SEARCH</span>
+                </div>
+                <div class="header-action-item d-flex align-items-center">
+                    <i class="fa-regular fa-heart me-2"></i> <span class="action-text d-none d-md-inline">WISHLIST</span>
+                </div>
+                <div class="header-action-item">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+    <div class="offcanvas offcanvas-start border-0" tabindex="-1" id="zauqSidebar" aria-labelledby="zauqSidebarLabel" style="width: 320px;">
+  <div class="offcanvas-header border-bottom p-4">
+    <h5 class="offcanvas-title fw-bold text-uppercase tracking-widest" id="zauqSidebarLabel" style="letter-spacing: 2px;">ZAUQ</h5>
+    <button type="button" class="btn-close text-reset shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body p-0">
+    <ul class="list-unstyled mb-0">
+      <li class="border-bottom"><a href="products.html" onclick="renderCatagory('chikankari')" class="nav-link-item">CHIKANKARI</a></li>
+      <li class="border-bottom"><a href="products.html" onclick="renderCatagory('essentials')" class="nav-link-item">ESSENTIALS PRET</a></li>
+      <li class="border-bottom"><a href="products.html" onclick="renderCatagory('signature')" class="nav-link-item">SIGNATURE PRET</a></li>
+      <li class="border-bottom"><a href="products.html" onclick="renderCatagory('designer')" class="nav-link-item">DESIGNER</a></li>
+      <li class="border-bottom"><a href="products.html" onclick="renderCatagory('tankTop')" class="nav-link-item">TANK TOPS</a></li>
+      <li class="border-bottom"><a href="products.html" onclick="renderCatagory('western')" class="nav-link-item">WESTERN</a></li>
+      <li class="border-bottom"><a href="products.html" onclick="renderCatagory('bags')" class="nav-link-item">BAGS</a></li>
+      <li class="border-bottom"><a href="products.html" onclick="renderCatagory('fragrance')" class="nav-link-item">FRAGRANCE</a></li>
+    </ul>
+
+    <div class="p-4 mt-4 bg-light">
+        <p class="small text-muted mb-3 fw-bold">HELP & INFORMATION</p>
+        <ul class="list-unstyled small">
+            <li class="mb-2"><a href="dilivery.html" class="text-decoration-none text-dark">Shipping Policy</a></li>
+            <li class="mb-2"><a href="exchange.html" class="text-decoration-none text-dark">Returns & Exchange</a></li>
+            <li><a href="contact.html" class="text-decoration-none text-dark">Contact Us</a></li>
+        </ul>
+    </div>
+  </div>
+</div>
+<main>
+  <section id="store-locations" class="py-5 bg-white">
+  <div class="container py-lg-5">
+    
+    <div class="row justify-content-center text-center mb-5">
+      <div class="col-lg-8">
+        <p class="text-uppercase mb-2  fw-bold" style="letter-spacing: 4px; font-size: 0.75rem; color: #004731;">Find Our Essence</p>
+        <h2 class="display-4 fw-bold mb-3" style="font-family: 'Playfair Display', serif;">Store Locations</h2>
+        <p class="text-secondary lead">Experience the <strong>Elegant Fragrance Style</strong> in person. Visit our flagship stores across the city.</p>
+        <div class="d-flex justify-content-center mt-3">
+          <div style="height: 1px; width: 120px; background-color: #bc9c6a;"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="store-list-container pe-lg-3" style="max-height: 550px; overflow-y: auto;">
+          
+          <div class="store-card p-4 mb-3 border border-light-subtle bg-white shadow-sm-hover">
+            <h6 class="fw-bold text-uppercase mb-1" style="color: #004731;">Lucky One Mall - Flagship</h6>
+            <p class="small text-muted mb-2">Main Rashid Minhas Road, Karachi</p>
+            <div class="d-flex align-items-center small text-secondary">
+              <span class="me-3"><i class="bi bi-clock me-1"></i> 11:00 AM - 11:00 PM</span>
+            </div>
+            <a href="https://www.google.com/maps/dir//2+Ground+Floor+Plot,+ZELLBURY,+Saima+Paari+Center,+Shop%23G,+D-12,+Block+C+North+Nazimabad+Town,+Karachi,+74600/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x3eb33f4c95fbdbb3:0x25988fcdf5b92d9a?sa=X&ved=1t:57443&ictx=111" class="btn btn-link btn-sm p-0 mt-2 text-dark fw-bold text-decoration-none">Get Directions &rarr;</a>
+          </div>
+
+          <div class="store-card p-4 mb-3 border border-light-subtle bg-white shadow-sm-hover">
+            <h6 class="fw-bold text-uppercase mb-1" style="color: #004731;">Dolmen Mall Clifton</h6>
+            <p class="small text-muted mb-2">Marine Drive, Block 4, Clifton, Karachi</p>
+            <div class="d-flex align-items-center small text-secondary">
+              <span class="me-3"><i class="bi bi-clock me-1"></i> 11:00 AM - 10:00 PM</span>
+            </div>
+            <a href="https://www.google.com/maps/dir//2+Ground+Floor+Plot,+ZELLBURY,+Saima+Paari+Center,+Shop%23G,+D-12,+Block+C+North+Nazimabad+Town,+Karachi,+74600/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x3eb33f4c95fbdbb3:0x25988fcdf5b92d9a?sa=X&ved=1t:57443&ictx=111" class="btn btn-link btn-sm p-0 mt-2 text-dark fw-bold text-decoration-none">Get Directions &rarr;</a>
+          </div>
+
+          <div class="store-card p-4 mb-3 border border-light-subtle bg-white shadow-sm-hover">
+            <h6 class="fw-bold text-uppercase mb-1" style="color: #004731;">North Nazimabad Outlet</h6>
+            <p class="small text-muted mb-2">Near Five Star Chowrangi, Block L, Karachi</p>
+            <div class="d-flex align-items-center small text-secondary">
+              <span class="me-3"><i class="bi bi-clock me-1"></i> 12:00 PM - 10:30 PM</span>
+            </div>
+            <a href="https://www.google.com/maps/dir//2+Ground+Floor+Plot,+ZELLBURY,+Saima+Paari+Center,+Shop%23G,+D-12,+Block+C+North+Nazimabad+Town,+Karachi,+74600/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x3eb33f4c95fbdbb3:0x25988fcdf5b92d9a?sa=X&ved=1t:57443&ictx=111" class="btn btn-link btn-sm p-0 mt-2 text-dark fw-bold text-decoration-none">Get Directions &rarr;</a>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-lg-8">
+        <div class="position-relative h-100 shadow-sm border" style="min-height: 450px;">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115758.3379555135!2d67.01428384335938!3d24.9509015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33f11a43a7537%3A0xc3f58e17415d6621!2sLucky%20One%20Mall!5e0!3m2!1sen!2s!4v1712410000000!5m2!1sen!2s" 
+            width="100%" 
+            height="100%" 
+            style="border:0; min-height: 450px;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-5 pt-4">
+      <p class="text-muted">Not near any of these? <a href="https://www.google.com/maps/dir//2+Ground+Floor+Plot,+ZELLBURY,+Saima+Paari+Center,+Shop%23G,+D-12,+Block+C+North+Nazimabad+Town,+Karachi,+74600/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x3eb33f4c95fbdbb3:0x25988fcdf5b92d9a?sa=X&ved=1t:57443&ictx=111" class="fw-bold text-decoration-underline" style="color: #004731;">Check all 25+ stores nationwide</a></p>
+    </div>
+
+  </div>
+</section>
+
+
+  
+</main>
+
+ <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+</body>
+</html>
