@@ -762,6 +762,52 @@ footer{
     .product-name { font-size: 11px; }
     .current-price { font-size: 12px; }
     .btn-quick-add { padding: 8px; font-size: 10px; }
+    footer {
+        height: auto !important;
+        padding: 40px 20px;
+    }
+
+    /* Agar aap columns use kar rahi hain toh unhe stack karein */
+    .footer-links, .subscribe-section {
+        text-align: center; /* Mobile pe center alignment achi lagti hai */
+        margin-bottom: 30px;
+    }
+
+    /* Footer headings mobile pe thori choti */
+    .footer-heading {
+        margin-bottom: 15px;
+        font-size: 0.9rem;
+    }
+
+    /* List items ki movement mobile pe khatam ya kam kar den */
+    .footer-links ul li {
+        width: 100%; /* Full width taake click karna asan ho */
+        margin-bottom: 15px;
+    }
+
+    .footer-links ul li:hover {
+        transform: translateX(0); /* Mobile pe side movement ajeeb lagti hai */
+    }
+
+    /* Subscribe form ko mobile pe width adjust karein */
+    .subscribe-form {
+        width: 100% !important;
+        margin: 0 auto;
+    }
+
+    /* Social icons ki space */
+    .social-icons {
+        justify-content: center;
+        display: flex;
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    /* Bottom footer (Copyright area) */
+    .footer-bottom {
+        text-align: center;
+        padding: 20px 0;
+    }
 
    
 }
