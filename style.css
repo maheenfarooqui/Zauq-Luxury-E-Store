@@ -808,6 +808,9 @@ footer{
         text-align: center;
         padding: 20px 0;
     }
+    #displayHero {
+    touch-action: pan-y; /* Sirf up-down scroll allow karega, left-right hum JS se handle karenge */
+}
 
    
 }

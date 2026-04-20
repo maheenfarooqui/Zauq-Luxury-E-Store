@@ -5,6 +5,8 @@ var displayHero = document.getElementById("displayHero");
 var offCanvasEl = document.getElementById("zauqSidebar");
 var index = 0;
 var isPaused = false;
+var touchStartX = 0;
+var touchEndX = 0;
 var imgArr = [
   "assets/11.png",
   "assets/22.png",
@@ -78,6 +80,33 @@ window.addEventListener("resize", () => {
 setInterval(() => {
   nextImg();
 }, 3000);
+var carousel = document.getElementById("displayHero");
+// 1. Jab touch shuru ho
+carousel.addEventListener('touchstart', function(event) {
+    touchStartX = event.changedTouches[0].screenX;
+}, false);
+
+// 2. Jab touch khatam ho
+carousel.addEventListener('touchend', function(event) {
+    touchEndX = event.changedTouches[0].screenX;
+    handleSwipe();
+}, false);
+
+// 3. Calculation karein ke swipe kis taraf hua
+function handleSwipe() {
+    var swipeDistance = touchEndX - touchStartX;
+
+    if (swipeDistance < -50) {
+        // Left Swipe (Agli post dikhayen)
+        console.log("Swipe Left!");
+        nextImg(); // Aapka next slide wala function
+    } 
+    else if (swipeDistance > 50) {
+        // Right Swipe (Purani post dikhayen)
+        console.log("Swipe Right!");
+        previous(); // Aapka previous slide wala function
+    }
+}
 document.addEventListener("keydown", function (e) {
   if (e.key === "ArrowDown") {
     nextImg();
