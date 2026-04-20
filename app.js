@@ -15,6 +15,16 @@ var imgArr = [
   "assets/88.png",
   "assets/99.png",
 ];
+var imgArrMobile = [
+  "assets/mobile(4).png",
+  "assets/mobile(5).png",
+  "assets/mobile(6).png",
+  "assets/mobile(7).png",
+  "assets/mobile(4).png",
+  "assets/mobile(8).png",
+  "assets/mobile(9).png",
+  "assets/mobile(10).png",
+];
 
 function nextImg() {
   if (isPaused) {
@@ -38,13 +48,16 @@ function previous() {
 }
 
 function updateDisplay() {
-  
   if (index <= 7) {
     heroImg.classList.remove("slide-in-top");
     displayHero.style.display = "block";
     footerEl.style.display = "none";
+    if (window.innerWidth <= 768) {
+      heroImg.src = imgArrMobile[index];
+    } else {
+      heroImg.src = imgArr[index];
+    }
 
-    heroImg.src = imgArr[index];
     setTimeout(() => {
       heroImg.classList.add("slide-in-top");
     }, 10);
@@ -58,6 +71,9 @@ function updateDisplay() {
     displayHero.style.display = "none";
   }
 }
+window.addEventListener("resize", () => {
+  updateDisplay(); // Screen size change hote hi image update ho jayegi
+});
 
 setInterval(() => {
   nextImg();
@@ -75,6 +91,7 @@ footerEl.addEventListener("mouseenter", () => {
 footerEl.addEventListener("mouseleave", () => {
   isPaused = false;
 });
+
 offCanvasEl.addEventListener("show.bs.offcanvas", () => {
   isPaused = true;
 });
@@ -94,9 +111,10 @@ function searchdisplay() {
   document.getElementById("zauq-main").style.display = "none";
   document.getElementById("productDisplay").style.display = "none";
   document.getElementById("searchContainer").style.display = "block";
-  document.getElementById("zauqText").innerHTML=`<p class="text-muted italic opacity-50 text-center">
+  document.getElementById("zauqText").innerHTML =
+    `<p class="text-muted italic opacity-50 text-center">
             Select a category or collection to discover Zauq.
-          </p>`
+          </p>`;
   showcatogeryInput();
 }
 var categoryFilter = document.getElementById("categoryFilter");
@@ -104,17 +122,11 @@ var collectionFilter = document.getElementById("collectionFilter");
 function showcatogeryInput() {
   categoryFilter.innerHTML = `<option value="all">All Categories</option>`;
   for (var cat in allProducts) {
-    
-    
     categoryFilter.innerHTML += `<option value="${cat}">${cat}</option>`;
-    
   }
-   
 }
 
 categoryFilter.addEventListener("change", function () {
- 
-  
   collectionFilter.innerHTML = `<option value="all">All Collections</option>`;
   for (var item in allProducts[categoryFilter.value]) {
     collectionFilter.innerHTML += `<option value="${item}">${item}</option>`;
@@ -125,9 +137,10 @@ function startSearch() {
   var selectCat = categoryFilter.value;
   var selectCol = collectionFilter.value;
   collectionFilter.innerHTML = `<option value="all">All Collections</option>`;
-  categoryFilter.innerHTML =`<option value="all">All Collections</option>`;
-  document.getElementById("circleNAve").style.display="none"
-  document.getElementById("zauqText").innerHTML =`<h4 class="section-heading mb-0 text-center" id="catHeading">${selectCat} ${selectCol} COLLECTION</h4>`
+  categoryFilter.innerHTML = `<option value="all">All Collections</option>`;
+  document.getElementById("circleNAve").style.display = "none";
+  document.getElementById("zauqText").innerHTML =
+    `<h4 class="section-heading mb-0 text-center" id="catHeading">${selectCat} ${selectCol} COLLECTION</h4>`;
   document.getElementById("productContainer").innerHTML = "";
   if (selectCat === "all") {
     renderProduct(allProducts);
@@ -138,14 +151,12 @@ function startSearch() {
   }
   showcatogeryInput();
   document.getElementById("productDisplay").style.display = "block";
-  
-  
 }
 
 // ............................. for product
 
 var allProducts = {
- chikankari: {
+  chikankari: {
     "3pc suit": [
       {
         articleName: "PLAIN CHIKANKARI - 3PC",
@@ -559,7 +570,7 @@ var allProducts = {
       },
     ],
   },
- signature: {
+  signature: {
     tunic: [
       {
         articleName: "Fusion Tunic",
@@ -879,8 +890,8 @@ var allProducts = {
       },
     ],
   },
- designer: {
-     luxury: [
+  designer: {
+    luxury: [
       {
         articleName: "Designer Luxe 1",
         description: "Limited Edition Designer Wear",
@@ -1076,7 +1087,7 @@ var allProducts = {
         new: "NEW",
         salePrice: null,
       },
-       {
+      {
         articleName: "Pashmina Shawl",
         description: "Soft Woolen Pashmina",
         price: 5500,
@@ -1087,7 +1098,7 @@ var allProducts = {
       },
     ],
   },
- tankTop: {
+  tankTop: {
     tops: [
       {
         articleName: "Lace Top",
@@ -1425,7 +1436,7 @@ var allProducts = {
       },
     ],
   },
- western: {
+  western: {
     "t-shirt": [
       {
         articleName: "Plain White Tee",
@@ -1763,7 +1774,7 @@ var allProducts = {
       },
     ],
   },
-bags: {
+  bags: {
     "cross body bag": [
       {
         articleName: "Leatherette Crossbody",
@@ -2045,7 +2056,7 @@ bags: {
       },
     ],
   },
- fragrance: {
+  fragrance: {
     "body mist": [
       {
         articleName: "Ocean Breeze Mist",
@@ -2158,7 +2169,7 @@ bags: {
         salePrice: null,
       },
     ],
-  }
+  },
 };
 
 var allfilter = {
@@ -2222,7 +2233,7 @@ function displaycat(displayC) {
   var returnKey = displayC;
   catNavSec.innerHTML = "";
   mainHeading.innerText = returnKey.toUpperCase();
-  
+
   var selectedCat = allfilter[returnKey];
 
   if (selectedCat) {
@@ -2254,8 +2265,7 @@ function renderProduct(obj) {
 
 function renderCard(details) {
   var productContainer = document.getElementById("productContainer");
-  
-  
+
   var cards = ` <div class="col-6 col-md-4 col-lg-3">
       <div class="product-card">
                     <div class="product-image-wrapper">
@@ -2295,8 +2305,8 @@ function filterProducts(mainCat, subCat) {
   displaycat(mainCat);
 }
 function renderCatagory(catogary) {
-   document.getElementById("searchContainer").style.display = "none";
-   document.getElementById("productCardDetails").style.display = "none";
+  document.getElementById("searchContainer").style.display = "none";
+  document.getElementById("productCardDetails").style.display = "none";
   productContainer.innerHTML = "";
   if (allProducts[catogary]) {
     renderProduct(allProducts[catogary]);
@@ -2305,29 +2315,27 @@ function renderCatagory(catogary) {
   }
   document.getElementById("zauq-main").style.display = "none";
   document.getElementById("productDisplay").style.display = "block";
-  document.getElementById("circleNAve").style.display="block"
+  document.getElementById("circleNAve").style.display = "block";
   displaycat(catogary);
 }
 
-
 // ................... for productdetails card
-var productPrice = ""
-function showProductDetails(info){
-  
-  
-var cardDetails = info.parentNode.parentNode;
-var cardName = cardDetails.querySelector(".product-name");
-var cardPrice = cardDetails.querySelector(".current-price");
-var cardDescr = cardDetails.querySelector(".product-category");
-var cardImg1 = cardDetails.querySelector("#img1");
-var cardImg2 = cardDetails.querySelector("#img2");
+var productPrice = "";
+function showProductDetails(info) {
+  var cardDetails = info.parentNode.parentNode;
+  var cardName = cardDetails.querySelector(".product-name");
+  var cardPrice = cardDetails.querySelector(".current-price");
+  var cardDescr = cardDetails.querySelector(".product-category");
+  var cardImg1 = cardDetails.querySelector("#img1");
+  var cardImg2 = cardDetails.querySelector("#img2");
 
-document.getElementById("zauq-main").style.display = "none";
-    document.getElementById("productDisplay").style.display = "none";
-    document.getElementById("productCardDetails").style.display = "block";
-    document.getElementById("searchContainer").style.display = "none";
+  document.getElementById("zauq-main").style.display = "none";
+  document.getElementById("productDisplay").style.display = "none";
+  document.getElementById("productCardDetails").style.display = "block";
+  document.getElementById("searchContainer").style.display = "none";
 
-document.getElementById("productCardDetails").innerHTML=`<div class="row g-5">
+  document.getElementById("productCardDetails").innerHTML =
+    `<div class="row g-5">
         <div class="col-md-7">
     <div class="row g-2">
         <div class="col-12 product-main-img-container">
@@ -2371,75 +2379,71 @@ document.getElementById("productCardDetails").innerHTML=`<div class="row g-5">
                
             </div>
         </div>
-    </div>`
-productPrice = cardPrice.innerText;
-
+    </div>`;
+  productPrice = cardPrice.innerText;
 }
 
-function decreaseNum(){
-   var qtyInput = document.getElementById("qtyInput");
-   var decre =qtyInput.value;
-   if(decre > 0){
-    qtyInput.value = --decre
-   }
-   else{
-     qtyInput.value = 0;
-   }
-}
-function increaseNum(){
+function decreaseNum() {
   var qtyInput = document.getElementById("qtyInput");
- var incre =qtyInput.value;
-    qtyInput.value = ++incre;  
+  var decre = qtyInput.value;
+  if (decre > 0) {
+    qtyInput.value = --decre;
+  } else {
+    qtyInput.value = 0;
+  }
 }
-function sumPrice(){
-    var qtyInput = document.getElementById("qtyInput").value;
-    var price = productPrice.slice(2);
-    var finalPrice = Number(qtyInput) * Number(price);
+function increaseNum() {
+  var qtyInput = document.getElementById("qtyInput");
+  var incre = qtyInput.value;
+  qtyInput.value = ++incre;
+}
+function sumPrice() {
+  var qtyInput = document.getElementById("qtyInput").value;
+  var price = productPrice.slice(2);
+  var finalPrice = Number(qtyInput) * Number(price);
 
-    document.getElementById("subtotal").innerHTML = `Total: ${finalPrice}RS`;
+  document.getElementById("subtotal").innerHTML = `Total: ${finalPrice}RS`;
 }
 
 // ...........checkout
 
-function fillCheckoutData(checkoutData){
-var cardDetails = checkoutData.parentNode;
-var cardName = cardDetails.querySelector("#detailTitle");
-var cardDescr = cardDetails.querySelector("#detailSku");
-var cardPrice = cardDetails.querySelector("#detailPrice");
-var cardImg1 = cardDetails.querySelector("#mainImg");
-var qtyInput = document.querySelector("#qtyInput").value
-var mainimg =cardDetails.parentNode.parentNode;
-var img = mainimg.querySelector("#mainImg")
-document.getElementById("checkoutItemName").innerText= cardName.innerText;
-document.getElementById("checkoutItemSize").innerText= cardDescr.innerText;
-document.getElementById("checkoutItemPrice").innerText= cardPrice.innerText;
-document.getElementById("checkoutItemImg").src= img.src
-document.getElementById("qty").innerText = `Quantity: ${qtyInput}`;
-sumPrice()
-
+function fillCheckoutData(checkoutData) {
+  var cardDetails = checkoutData.parentNode;
+  var cardName = cardDetails.querySelector("#detailTitle");
+  var cardDescr = cardDetails.querySelector("#detailSku");
+  var cardPrice = cardDetails.querySelector("#detailPrice");
+  var cardImg1 = cardDetails.querySelector("#mainImg");
+  var qtyInput = document.querySelector("#qtyInput").value;
+  var mainimg = cardDetails.parentNode.parentNode;
+  var img = mainimg.querySelector("#mainImg");
+  document.getElementById("checkoutItemName").innerText = cardName.innerText;
+  document.getElementById("checkoutItemSize").innerText = cardDescr.innerText;
+  document.getElementById("checkoutItemPrice").innerText = cardPrice.innerText;
+  document.getElementById("checkoutItemImg").src = img.src;
+  document.getElementById("qty").innerText = `Quantity: ${qtyInput}`;
+  sumPrice();
 }
-function confirmOreder(){
-    Swal.fire({
-        title: 'ORDER PLACED',
-        text: 'Thank you for choosing Zauq. Your luxury ensemble is on its way!',
-        icon: 'success',
-        background: '#fff', // Pure White background
-        color: '#000',      // Black text
-       
-        confirmButtonText: 'CONTINUE SHOPPING',
-        buttonsStyling: false,
-        customClass: {
-            confirmButton: 'swal-zauq-btn',
-            title: 'swal-zauq-title',
-            popup: 'swal-zauq-popup'
-        },
-        showClass: {
-            popup: 'animate__animated animate__fadeInUp' // Agar Animate.css use kar rahi ho
-        }
-    }).then((result) => {
-        if (result.isConfirmed) {
-            window.location.href = 'index.html'; // Ya jahan tum le jana chaho
-        }
-    });
-}
+function confirmOreder() {
+  Swal.fire({
+    title: "ORDER PLACED",
+    text: "Thank you for choosing Zauq. Your luxury ensemble is on its way!",
+    icon: "success",
+    background: "#fff", // Pure White background
+    color: "#000", // Black text
 
+    confirmButtonText: "CONTINUE SHOPPING",
+    buttonsStyling: false,
+    customClass: {
+      confirmButton: "swal-zauq-btn",
+      title: "swal-zauq-title",
+      popup: "swal-zauq-popup",
+    },
+    showClass: {
+      popup: "animate__animated animate__fadeInUp", // Agar Animate.css use kar rahi ho
+    },
+  }).then((result) => {
+    if (result.isConfirmed) {
+      window.location.href = "index.html"; // Ya jahan tum le jana chaho
+    }
+  });
+}

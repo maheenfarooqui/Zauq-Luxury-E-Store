@@ -6,8 +6,9 @@
 body{
     overflow-x: hidden;
     width: 100%;
+    font-family: 'Inter', sans-serif;
 }
-body { font-family: 'Inter', sans-serif; color: #111; }
+
         .product-img { width: 100%; height: auto; object-fit: cover; }
         .product-title { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 10px; }
         .price { font-size: 1.5rem; color: #bc9c6a; font-weight: 600; margin-bottom: 20px; }
@@ -183,7 +184,7 @@ input::-webkit-inner-spin-button {
     background-color: transparent !important;
     outline: #004731;
 }
-body { font-family: 'Inter', sans-serif; background-color: #fff; }
+
         .search-header { padding: 60px 0; border-bottom: 1px solid #eee; }
         .search-input-lg{
             border: none;
@@ -744,29 +745,23 @@ footer{
     padding-top: 0;
     padding-bottom: 30px;
   }
-
-  #faqs-zauq {
-    font-family: 'Inter', sans-serif;
-  }
-  /* Responsive adjustment for the border-ends on mobile */
   @media (max-width: 768px) {
     .border-end {
       border: none !important;
       border-bottom: 1px solid #dee2e6 !important;
       padding-bottom: 10px;
     }
-  }
-
-/* Mobile Tweaks */
-@media (max-width: 576px) {
-    .product-name { font-size: 11px; }
-    .current-price { font-size: 12px; }
-    .btn-quick-add { padding: 8px; font-size: 10px; }
-}
-/* Tablet/Mobile Adjustments */
-@media (max-width: 768px) {
     .cat-circle {
         width: 75px;
         height: 75px;
     }
+  }
+
+
+@media (max-width: 576px) {
+    .product-name { font-size: 11px; }
+    .current-price { font-size: 12px; }
+    .btn-quick-add { padding: 8px; font-size: 10px; }
+
+   
 }
